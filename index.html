@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 고양이 천국 - Cat Paradise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🐱 고양이 천국</h1>
+        <p class="subtitle">세상에서 가장 귀여운 친구들을 만나보세요</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>오늘의 고양이</h2>
+                <p>버튼을 눌러 새로운 고양이 친구를 만나보세요!</p>
+                <button id="newCatBtn" class="btn-primary">🎲 새로운 고양이 보기</button>
+            </div>
+            <div class="hero-image">
+                <img id="randomCat" src="https://cataas.com/cat" alt="Random Cat" />
+            </div>
+        </section>
+
+        <section class="facts">
+            <h2>🐾 알고 있나요?</h2>
+            <div class="fact-grid">
+                <div class="fact-card">
+                    <div class="emoji">😴</div>
+                    <h3>잠꾸러기</h3>
+                    <p>고양이는 하루에 12-16시간을 잡니다.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="emoji">👃</div>
+                    <h3>독특한 코</h3>
+                    <p>모든 고양이의 코 무늬는 사람의 지문처럼 고유합니다.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="emoji">🏃</div>
+                    <h3>빠른 달리기</h3>
+                    <p>고양이는 시속 48km까지 달릴 수 있습니다.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="emoji">👂</div>
+                    <h3>예민한 귀</h3>
+                    <p>고양이는 한쪽 귀에 32개의 근육이 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>📸 고양이 갤러리</h2>
+            <div class="gallery-grid" id="gallery">
+                <img src="https://cataas.com/cat?type=square&1" alt="고양이 1" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&2" alt="고양이 2" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&3" alt="고양이 3" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&4" alt="고양이 4" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&5" alt="고양이 5" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&6" alt="고양이 6" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&7" alt="고양이 7" loading="lazy">
+                <img src="https://cataas.com/cat?type=square&8" alt="고양이 8" loading="lazy">
+            </div>
+            <button id="refreshGalleryBtn" class="btn-secondary">🔄 갤러리 새로고침</button>
+        </section>
+
+        <section class="meow">
+            <h2>🔊 야옹!</h2>
+            <p>버튼을 눌러 고양이 소리를 들어보세요</p>
+            <button id="meowBtn" class="btn-meow">야옹 🐈</button>
+            <p id="meowText" class="meow-text"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with 💖 for cat lovers · 고양이 이미지 제공: <a href="https://cataas.com" target="_blank" rel="noopener">cataas.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
