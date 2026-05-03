@@ -35,6 +35,206 @@ header h1 {
     50% { transform: translateY(-10px); }
 }
 
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    93%, 97% { transform: scaleY(0.1); }
+}
+
+@keyframes tail-wag {
+    0%, 100% { transform: rotate(20deg); }
+    50% { transform: rotate(-20deg); }
+}
+
+@keyframes leg-walk {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(25deg); }
+    75% { transform: rotate(-25deg); }
+}
+
+@keyframes leg-walk-reverse {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-25deg); }
+    75% { transform: rotate(25deg); }
+}
+
+@keyframes walk-across {
+    0% { left: -150px; transform: scaleX(1); }
+    49% { left: calc(100% + 50px); transform: scaleX(1); }
+    50% { left: calc(100% + 50px); transform: scaleX(-1); }
+    99% { left: -150px; transform: scaleX(-1); }
+    100% { left: -150px; transform: scaleX(1); }
+}
+
+@keyframes paw-drift {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-paws {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.paw {
+    position: absolute;
+    bottom: -50px;
+    left: var(--left);
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: paw-drift 12s linear infinite;
+    animation-delay: var(--delay);
+}
+
+.walking-cat {
+    position: fixed;
+    bottom: 12px;
+    left: -150px;
+    width: 90px;
+    height: 60px;
+    z-index: 999;
+    animation: walk-across 25s linear infinite;
+    pointer-events: none;
+}
+
+.cat-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cat-torso {
+    position: absolute;
+    bottom: 8px;
+    left: 18px;
+    width: 55px;
+    height: 30px;
+    background: #2d3436;
+    border-radius: 50% 40% 40% 50%;
+}
+
+.cat-head {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    width: 32px;
+    height: 28px;
+    background: #2d3436;
+    border-radius: 50% 50% 45% 45%;
+    animation: wiggle 1s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.cat-ear {
+    position: absolute;
+    bottom: 48px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 12px solid #2d3436;
+    animation: wiggle 1s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.cat-ear-left {
+    left: 2px;
+    transform: rotate(-15deg);
+}
+
+.cat-ear-right {
+    left: 18px;
+    transform: rotate(15deg);
+}
+
+.cat-eye {
+    position: absolute;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    background: #ffeaa7;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+}
+
+.cat-eye-left { left: 7px; }
+.cat-eye-right { left: 19px; }
+
+.cat-nose {
+    position: absolute;
+    top: 17px;
+    left: 13px;
+    width: 5px;
+    height: 4px;
+    background: #fd79a8;
+    border-radius: 50%;
+}
+
+.cat-whisker {
+    position: absolute;
+    width: 8px;
+    height: 1px;
+    background: #ffeaa7;
+}
+
+.cat-whisker-l1 { top: 18px; left: 0px; transform: rotate(-10deg); }
+.cat-whisker-l2 { top: 21px; left: 0px; transform: rotate(10deg); }
+.cat-whisker-r1 { top: 18px; right: 0px; transform: rotate(10deg); }
+.cat-whisker-r2 { top: 21px; right: 0px; transform: rotate(-10deg); }
+
+.cat-leg {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 14px;
+    background: #2d3436;
+    border-radius: 4px;
+    transform-origin: top center;
+}
+
+.cat-leg-front {
+    left: 24px;
+    animation: leg-walk 0.5s ease-in-out infinite;
+}
+
+.cat-leg-back {
+    left: 60px;
+    animation: leg-walk-reverse 0.5s ease-in-out infinite;
+}
+
+.cat-tail {
+    position: absolute;
+    bottom: 30px;
+    right: -8px;
+    width: 28px;
+    height: 6px;
+    background: #2d3436;
+    border-radius: 6px;
+    transform-origin: left center;
+    animation: tail-wag 0.8s ease-in-out infinite;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -80,9 +280,11 @@ section h2 {
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    animation: float 4s ease-in-out infinite;
 }
 
 .hero-image img:hover {
+    animation-play-state: paused;
     transform: scale(1.02);
 }
 
@@ -182,9 +384,33 @@ section h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.gallery-grid img:nth-child(odd) {
+    animation: float 5s ease-in-out infinite;
+}
+
+.gallery-grid img:nth-child(even) {
+    animation: float 5s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    animation-play-state: paused;
+    transform: scale(1.08) rotate(-2deg);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+main, header, footer {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+    .walking-cat, .floating-paws { display: none; }
 }
 
 .meow {
